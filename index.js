@@ -73,14 +73,14 @@ const authenticateJWT = (req, res, next) => {
   if (token) {
     jwt.verify(token, jwtSecret, (err, user) => {
       if (err) {
-        console.log('JWT verification Error', err.message);
+        console.error('JWT verification Error', err.message);
         return res.sendStatus(403);
       }
       req.user = user;
       next();
     });
   } else {
-    console.log('Token is missing');
+    console.error('Token is missing');
     res.sendStatus(401);
   }
 };
@@ -103,7 +103,7 @@ app.post('/register', async (req, res) => {
 
   const newUser = new User({
     username: sanitizedUsername,
-    password: sanitizedPassword,
+    password: hashedPassword,
     role,
   });
 
@@ -180,7 +180,7 @@ app.post('/posts', authenticateJWT, async (req, res) => {
   }
 });
 
-app.get('/post:id', async (req, res) => {
+app.get('/post/:id', async (req, res) => {
   const postId = req.params.id;
   const post = await Post.findById(postId);
   if (!post) {
@@ -190,7 +190,7 @@ app.get('/post:id', async (req, res) => {
   // Nuskaityti HTML is failo
   fs.readFile(path.join(__dirname, 'post-detail.html'), 'utf8', (err, data) => {
     if (err) {
-      console.log(err);
+      console.error(err);
       return res.status(500).send('Vidinis serverio gedimas');
     }
 
@@ -204,4 +204,43 @@ app.get('/post:id', async (req, res) => {
 
     res.status(200).send(postDetailHtml);
   });
+});
+
+// Delete post
+app.delete('/posts/:id', authenticateJWT, async (req, res) => {
+  if (req.user.role == 'admin') {
+    try {
+      await Post.findByIdAndDelete(req.params.id);
+      res.status(200).send({ message: 'Irasas istrintas' });
+    } catch (error) {
+      res.status(500).send({ error: 'Vidinis serverio sutrikimas' });
+    }
+  } else {
+    res.status(403).send({ error: 'Uzdrausta' });
+  }
+});
+
+// Atnaujinti irasa
+app.put('/posts/:id', authenticateJWT, async (req, res) => {
+  const { title, content } = req.body;
+  const postId = req.params.id;
+
+  try {
+    const post = await Post.findById(postId);
+
+    if (!post) {
+      return res.status(404).send({ error: 'Irasas nerastas' });
+    }
+
+    if (req.user.role === 'admin') {
+      post.title = title;
+      post.content = content;
+      await post.save();
+      res.status(200).send(post);
+    } else {
+      res.status(403).send({ error: 'Uzdrausta' });
+    }
+  } catch (error) {
+    res.status(500).send({ error: 'Vidinis serverio sutrikimas' });
+  }
 });
