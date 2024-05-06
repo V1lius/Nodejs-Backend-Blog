@@ -51,11 +51,11 @@ window.addEventListener('load', () => {
 async function fetchPosts(baseUrl) {
   const res = await fetch(`${baseUrl}/posts`);
   const data = await res.json();
-  const postList = document.getElementById('posts-list');
+  const postsList = document.getElementById('posts-list');
   const isAdmin = localStorage.getItem('userRole') === 'admin';
 
-  if (postList) {
-    postList.innerHTML = data
+  if (postsList) {
+    postsList.innerHTML = data
       .map((post, index) => {
         const deleteButtonStyle = isAdmin ? '' : 'display: none';
         const updateButtonStyle = isAdmin ? '' : 'display: none';
@@ -182,11 +182,11 @@ async function deletePost(postId, baseUrl) {
 function showUpdateForm(postId, title, content) {
   const updateForm = `
     <form id="update-form">
-        <input type="text" id="update-title" value="${title} />
+        <input type="text" id="update-title" value="${title}" />
         <textarea id="update-content">${content}</textarea>
         <button type="submit">Atnaujinti irasa</button>
     </form>
-  `;
+    `;
 
   const postElement = document.getElementById(postId);
   postElement.innerHTML += updateForm;
@@ -200,7 +200,7 @@ async function updatePost(event, postId) {
   event.preventDefault();
   const title = document.getElementById('update-title').value;
   const content = document.getElementById('update-content').value;
-  const baseUrl = windows.location.origin;
+  const baseUrl = window.location.origin;
 
   //uztikrinti jog laukeliai nera tusti
   if (!title || !content) {
@@ -321,7 +321,7 @@ async function loginUser(event, baseUrl) {
     location.reload();
 
     if (data.role === 'admin') {
-      showAdminFeatures;
+      showAdminFeatures();
     }
   } else {
     alert('Deja, nepavyko prisijungti :(');
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutButton.addEventListener('click', () => {
       localStorage.removeItem('jwtToken');
       localStorage.removeItem('userRole');
-      localStorage.removeItem('usermame');
+      localStorage.removeItem('username');
       location.reload();
     });
   } else {
