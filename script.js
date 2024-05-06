@@ -278,7 +278,7 @@ async function registerUser(event, baseUrl) {
 }
 
 //Vartotoju prisijungimas
-async function loginUser(event, postId) {
+async function loginUser(event, baseUrl) {
   event.preventDefault();
   const usernameInput = document.getElementById('login-username');
   const passwordInput = document.getElementById('login-password');
