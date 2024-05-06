@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apie gyvenima</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700;1,6..96,800;1,6..96,900&family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+    <script src="nav.js" defer></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav_logo"><a href="/">Apie gyvenima</a></div>
+      <a class="nav__hamburger">
+        <span class="nav__hamburger__line"></span>
+        <span class="nav__hamburger__line"></span>
+        <span class="nav__hamburger__line"></span>
+      </a>
+      <div class="nav__menu">
+        <div>
+          <div id="register-div">
+            <h1>Registruotis</h1>
+            <form id="register-form">
+              <input
+                type="text"
+                id="register-username"
+                placeholder="Vartotojo vardas"
+              />
+              <input
+                type="password"
+                id="register-password"
+                placeholder="Slaptažodis"
+              />
+              <select id="register-role">
+                <option value="reader">Skaitytojas</option>
+                <option value="admin">Administratorius</option>
+              </select>
+              <button type="submit">Registruotis</button>
+            </form>
+          </div>
+          <div id="logout-div">
+            <h2 id="username">Vartotojo vardas</h2>
+            <button id="logout-button">Atsijungti</button>
+          </div>
+
+          <div id="login-div">
+            <h1>Prisijungti</h1>
+            <form id="login-form">
+              <input
+                type="text"
+                id="login-username"
+                placeholder="Vartotojo vardas"
+              />
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Slaptažodis"
+              />
+              <button id="login-button" type="submit">Prisijungti</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div id="posts-list">
+        
+      <div id="new-post-div" style="display: none">
+        <h2>Naujas Irasas</h2>
+        <form id="new-post-form">
+          <input type="text" id="title" placeholder="Pavadinimas" />
+          <textarea id="content" placeholder="Turinys"></textarea>
+          <input type="text" id="image-url" placeholder="Nuotraukos URL" />
+          <button type="submit">Sukurti irasa</button>
+        </form>
+      </div>
+      <div id="post-detail-container"></div>
+    </main>
+    <footer>
+      <h3>Apie Gyvenima</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+      <span
+        ><p>&copy;</p>
+        <script>
+          document.write(new Date().getFullYear());
+        </script></span
+      >
+    </footer>
+  </body>
+</html>
