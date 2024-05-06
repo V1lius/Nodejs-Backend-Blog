@@ -99,7 +99,7 @@ async function createPost(event, baseUrl) {
   event.preventDefault();
   const titleInput = document.getElementById('title');
   const contentInput = document.getElementById('content');
-  const iamgeUrlInput = document.getElementById('image-url');
+  const imageUrlInput = document.getElementById('image-url');
 
   // Pasiimti reiksmes is irasymo laukeliu
   const title = titleInput.value;
