@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apie gyvenima</title>
+    <title>Nordic Rose</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
   </head>
   <body>
     <nav class="nav">
-      <div class="nav_logo"><a href="/">Apie gyvenima</a></div>
+      <div class="nav__logo"><a href="/">Nordic Rose</a></div>
       <a class="nav__hamburger">
         <span class="nav__hamburger__line"></span>
         <span class="nav__hamburger__line"></span>
@@ -25,70 +25,64 @@
       <div class="nav__menu">
         <div>
           <div id="register-div">
-            <h1>Registruotis</h1>
+            <h1>Register</h1>
             <form id="register-form">
               <input
                 type="text"
                 id="register-username"
-                placeholder="Vartotojo vardas"
+                placeholder="Username"
               />
               <input
                 type="password"
                 id="register-password"
-                placeholder="Slaptažodis"
+                placeholder="Password"
               />
               <select id="register-role">
-                <option value="reader">Skaitytojas</option>
-                <option value="admin">Administratorius</option>
+                <option value="reader">Reader</option>
+                <option value="admin">Admin</option>
               </select>
-              <button type="submit">Registruotis</button>
+              <button type="submit">Register</button>
             </form>
           </div>
           <div id="logout-div">
-            <h2 id="username">Vartotojo vardas</h2>
-            <button id="logout-button">Atsijungti</button>
+            <h2 id="username">Username</h2>
+            <button id="logout-button">Logout</button>
           </div>
 
           <div id="login-div">
-            <h1>Prisijungti</h1>
+            <h1>Login</h1>
             <form id="login-form">
-              <input
-                type="text"
-                id="login-username"
-                placeholder="Vartotojo vardas"
-              />
+              <input type="text" id="login-username" placeholder="Username" />
               <input
                 type="password"
                 id="login-password"
-                placeholder="Slaptažodis"
+                placeholder="Password"
               />
-              <button id="login-button" type="submit">Prisijungti</button>
+              <button id="login-button" type="submit">Login</button>
             </form>
           </div>
         </div>
       </div>
     </nav>
     <main>
-      <div id="posts-list">
-        
+      <div id="posts-list"></div>
+
       <div id="new-post-div" style="display: none">
-        <h2>Naujas Irasas</h2>
+        <h2>New Post</h2>
         <form id="new-post-form">
-          <input type="text" id="title" placeholder="Pavadinimas" />
-          <textarea id="content" placeholder="Turinys"></textarea>
-          <input type="text" id="image-url" placeholder="Nuotraukos URL" />
-          <button type="submit">Sukurti irasa</button>
+          <input type="text" id="title" placeholder="Title" />
+          <textarea id="content" placeholder="Content"></textarea>
+          <input type="text" id="image-url" placeholder="Image URL" />
+          <button type="submit">Create post</button>
         </form>
       </div>
       <div id="post-detail-container"></div>
     </main>
     <footer>
-      <h3>Apie Gyvenima</h3>
+      <h3>Nordic Rose</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus illum
+        dolorum hic totam et perferendis? Nisi ipsum omnis dolor harum.
       </p>
       <span
         ><p>&copy;</p>
