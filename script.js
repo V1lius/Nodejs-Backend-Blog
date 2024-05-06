@@ -236,7 +236,7 @@ async function updatePost(event, postId) {
 }
 
 //Vartotoju registracija
-async function registerUser(event, postId) {
+async function registerUser(event, baseUrl) {
   event.preventDefault();
   const usernameInput = document.getElementById('register-username');
   const passwordInput = document.getElementById('register-password');
@@ -345,7 +345,7 @@ function showAdminFeatures() {
 
 //Atsijungimas
 document.addEventListener('DOMContentLoaded', () => {
-  const baseUrl = windows.location.origin;
+  const baseUrl = window.location.origin;
   const registerDiv = document.getElementById('register-div');
   const loginDiv = document.getElementById('login-div');
   const logoutDiv = document.getElementById('logout-div');
