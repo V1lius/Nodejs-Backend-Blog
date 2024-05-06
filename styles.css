@@ -112,7 +112,7 @@ body {
 }
 
 p {
-  font-family: 'Bodoni Moda', 'serif';
+  font-family: 'Bodoni Moda', serif;
 }
 
 main {
@@ -125,7 +125,7 @@ select,
 textarea {
   height: 32px;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   border: none;
   width: 140px;
 }
@@ -149,12 +149,11 @@ button:active {
 button:hover,
 select:hover,
 .nav__hamburger,
-.post,
 .post {
   cursor: pointer;
 }
 
-/* POSTU LISTAS */
+/* POST LIST */
 
 main {
   text-align: center;
@@ -170,7 +169,7 @@ main {
   text-align: center;
 }
 
-#posts-lists img,
+#posts-list img,
 .detail-post-img {
   width: 90%;
   max-width: 450px;
@@ -211,7 +210,7 @@ h3 {
 #posts-list > div:first-child h1 {
   font-size: 36px;
   max-width: 900px;
-  font-family: 'Poppins', 'sans-serif';
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-style: italic;
 }
@@ -233,7 +232,7 @@ h2 {
   margin-bottom: 30px;
 }
 
-/* Nauji irasai */
+/* NEW POST */
 
 #admin-buttons,
 #update-form {
@@ -254,12 +253,13 @@ h2 {
   gap: 10px;
   width: 100%;
 }
+
 textarea {
   width: 60%;
   height: 200px;
 }
 
-/* footeris */
+/* FOOTER */
 
 footer {
   display: flex;
@@ -288,14 +288,17 @@ footer p {
 .post-content {
   text-align: justify;
   margin: 0 auto;
-  width: 800px;
+  width: 80%;
+  max-width: 800px;
   margin-bottom: 100px;
 }
 
 .post-content .post-title,
-.post-content .post-author .post-content .post-timestamp {
+.post-content .post-author,
+.post-content .post-timestamp {
   text-align: center;
 }
+
 .post-content .post-title,
 .post-content .post-author {
   font-style: italic;
