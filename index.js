@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
 //JWT autentifikacijos tarpininkas
 
 const authenticateJWT = (req, res, next) => {
-  const token = req.headers.autherization.split(' ')[1];
+  const token = req.headers.authorization.split(' ')[1];
 
   if (token) {
     jwt.verify(token, jwtSecret, (err, user) => {
@@ -184,7 +184,7 @@ app.get('/post/:id', async (req, res) => {
   const postId = req.params.id;
   const post = await Post.findById(postId);
   if (!post) {
-    return res.status(400).send('Irasas nerastas');
+    return res.status(404).send('Irasas nerastas');
   }
 
   // Nuskaityti HTML is failo
