@@ -5,3 +5,7 @@ hamburger.addEventListener('click', () => {
   linksContainer.classList.toggle('active');
   hamburger.classList.toggle('active');
 });
+
+function gryzti() {
+  window.history.back();
+}
